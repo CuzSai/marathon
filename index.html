@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UESCTerm 802.11</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="terminal">
+    <div class="terminal-header">
+      UESCTerm 802.11 (remote override)
+      <span id="server-time">2142 05.09.2337</span>
+      <span id="countdown">Alpha starts in: --d --h --m --s</span>
+    </div>
+
+    <div class="terminal-output" id="terminalOutput">
+      <!-- Terminal output will be appended here -->
+    </div>
+
+    <div class="terminal-input">
+      <span class="prompt">>></span>
+      <input type="text" id="commandInput" placeholder="Enter command"/>
+    </div>
+
+    <div class="terminal-footer">
+      PgUp/PgDown/Arrows To Scroll    Return/Enter To Acknowledge
+    </div>
+  </div>
+
+  <div class="crt flicker"></div>
+
+  <script type="module" src="scripts/main.js"></script>
+</body>
+</html>

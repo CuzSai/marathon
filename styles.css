@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: black;
+  color: #00ff00;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Use grid on the terminal container */
+.terminal {
+  display: grid;
+  grid-template-rows: auto 1fr auto auto; /* header, output, input, footer */
+  height: 100%;
+}
+
+/* Header and footer keep their styling */
+.terminal-header,
+.terminal-footer {
+  background-color: #003300;
+  padding: 10px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* The output takes up all space between header and input/footer */
+.terminal-output {
+  margin: 0;
+  padding: 0 10px 10px;  /* No top padding */
+  overflow: hidden;      /* Prevent scrolling; older messages vanish */
+  white-space: pre-wrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Always stick messages to the bottom */
+}
+
+/* Ensure any div in the output has no extra spacing */
+.terminal-output div {
+  margin: 0;
+  padding: 0;
+}
+
+/* Input area styling */
+.terminal-input {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 10px;
+  background-color: #001100;
+}
+
+.prompt {
+  margin-right: 5px;
+}
+
+input[type="text"] {
+  background-color: black;
+  color: #00ff00;
+  border: none;
+  flex: 1;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1em;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+.crt {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 0, 0.05),
+    rgba(0, 255, 0, 0.05) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  z-index: 9999;
+}
+
+.flicker {
+  animation: flicker 0.1s infinite;
+}
+
+@keyframes flicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.95; }
+  100% { opacity: 1; }
+}
